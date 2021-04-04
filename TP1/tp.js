@@ -3,27 +3,25 @@ Realizar una función que permita contar la cantidad de vocales que tiene un tex
 No habrá discriminación entre las vocales en mayúscula y en minúscula. 
 Las vocales acentuadas no se contarán. El valor obtenido se retornará al terminar la función. Si se no se recibe un string retornará -1.
 */
-function contarVocales(texto) {  
- let vocales = -1;
+function contarVocales(texto) {
+  let vocales = -1;
 
- if(typeof(texto) != 'string'){
-   return vocales;
- }
- else{
+  if (typeof (texto) != 'string') {
+    return vocales;
+  } else {
     vocales = 0;
-    let textoUpper = texto.toUpperCase();    
-    for(let i = 0; i <= textoUpper.length; i++)
-    {
-      if(textoUpper[i]=="A" || 
-         textoUpper[i]=="E" || 
-         textoUpper[i]=="I" || 
-         textoUpper[i]=="O" || 
-         textoUpper[i]=="U"){
-           vocales++;
-         }
+    let textoUpper = texto.toUpperCase();
+    for (let i = 0; i <= textoUpper.length; i++) {
+      if (textoUpper[i] == "A" ||
+        textoUpper[i] == "E" ||
+        textoUpper[i] == "I" ||
+        textoUpper[i] == "O" ||
+        textoUpper[i] == "U") {
+        vocales++;
+      }
     }
     return vocales;
- }
+  }
 }
 
 /* 
@@ -43,8 +41,56 @@ caso contrario retorna false. En ambos métodos, si el texto no es válido, se d
 Crear un propiedad estática contadorInstancias que me indique cuantas instancias hay de esa clase.
 */
 const crearClase = () => {
-  return
+  return class x {   
+
+    constructor(texto) {
+      if(x.contadorInstancias){
+        x.contadorInstancias++
+      }
+      else{
+        x.contadorInstancias = 1
+      }
+      x.texto = texto      
+    }
+
+    contadorPalabras() {
+      if(typeof(x.texto)== "string"){
+        if(x.texto == ""){
+          return 0
+        }
+      var array = x.texto.split(" ")
+      return array.length
+      }
+      else{
+        return -1
+      }
+    }
+
+    hayNumeros() {
+      if(typeof (x.texto) == "string"){
+        if(x.texto == ""){
+          return 0
+        }
+        
+        let textoFormateado = x.texto.split(" ").join("")
+
+        for(let i = 0; i <= textoFormateado.length; i++){
+          for(let j = 0; j <= 9; j++){
+            if(textoFormateado[i] == j)            
+            return true
+          }
+        }        
+      }
+      else if(typeof (x.texto) != "string"){
+        return -1
+      }
+      else{
+        return false
+      }      
+    }
+  }
 }
+
 
 module.exports = {
   contarVocales,
