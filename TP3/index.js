@@ -7,11 +7,12 @@ app.use(express.json())
 //Settings
 app.set('appName', 'TP3');
 app.set('port', 5000)
+const PORT = process.env.PORT || app.get('PUERTO')
 
-app.listen(app.get('port'), ()=>{
+app.listen(app.get(PORT), ()=>{
     console.log(app.get('appName'))
     console.log(`server on port ${app.get('port')}`);
-})
+}).on('error', error => console.log(`Error en el servidor: ${error}`))
 
 app.get('/', (req, res)=>{
     let date = new Date().toLocaleTimeString();
