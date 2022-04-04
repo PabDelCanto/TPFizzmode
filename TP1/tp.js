@@ -3,24 +3,24 @@ Realizar una función que permita contar la cantidad de vocales que tiene un tex
 No habrá discriminación entre las vocales en mayúscula y en minúscula. 
 Las vocales acentuadas no se contarán. El valor obtenido se retornará al terminar la función. Si se no se recibe un string retornará -1.
 */
-function contarVocales(texto) {
-  let vocales = -1;
+function contarConsonantes(texto) {
+  let consonantes = -1;
 
   if (typeof (texto) != 'string') {
-    return vocales;
+    return consonantes;
   } else {
-    vocales = 0;
+    consonantes = 0;
     let textoUpper = texto.toUpperCase();
     for (let i = 0; i <= textoUpper.length; i++) {
-      if (textoUpper[i] == "A" ||
-        textoUpper[i] == "E" ||
-        textoUpper[i] == "I" ||
-        textoUpper[i] == "O" ||
-        textoUpper[i] == "U") {
-        vocales++;
+      if (textoUpper[i] != "A" &&
+        textoUpper[i] != "E" &&
+        textoUpper[i] != "I" &&
+        textoUpper[i] != "O" &&
+        textoUpper[i] != "U") {
+          consonantes++;
       }
     }
-    return vocales;
+    return consonantes;
   }
 }
 
